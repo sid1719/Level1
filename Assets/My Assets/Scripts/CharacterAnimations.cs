@@ -14,11 +14,18 @@ public class CharacterAnimations : MonoBehaviour
     {
         anim.SetBool("Walk", walk);
     }
+    public void Fly()
+    {
+        anim.SetTrigger("Fly");
+    }
     public void Fire()
     {
         anim.SetTrigger("Fire");
     }
-
+    public void Head()
+    {
+        anim.SetTrigger("Head");
+    }
     public void Tail()
     {
         anim.SetTrigger("Tail");

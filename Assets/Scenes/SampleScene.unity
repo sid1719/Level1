@@ -175,7 +175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8b638c09ac1c5d94b96ba6773ccf6869, type: 2}
+  - {fileID: 2100000, guid: 2939788d88b10224b8e572c92dc7d3b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1441,7 +1441,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1580424888, guid: 2808d9ca2cd23444a86aea177c715f97, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2808d9ca2cd23444a86aea177c715f97, type: 3}
 --- !u!1001 &7123294914054919567
 PrefabInstance:
@@ -1450,6 +1451,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1442480774, guid: 0b90a9b9768a58944ab70bbe307f745a, type: 3}
+      propertyPath: radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679740802, guid: 0b90a9b9768a58944ab70bbe307f745a, type: 3}
+      propertyPath: radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 95210109589249307, guid: 0b90a9b9768a58944ab70bbe307f745a, type: 3}
       propertyPath: health_UI
       value: 
@@ -1497,6 +1506,10 @@ PrefabInstance:
     - target: {fileID: 7118827875054705367, guid: 0b90a9b9768a58944ab70bbe307f745a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123294914883769508, guid: 0b90a9b9768a58944ab70bbe307f745a, type: 3}
+      propertyPath: attack_Distance
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7124278213424909295, guid: 0b90a9b9768a58944ab70bbe307f745a, type: 3}
       propertyPath: m_Name

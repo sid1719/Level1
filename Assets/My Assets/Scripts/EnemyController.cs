@@ -12,7 +12,8 @@ public class EnemyController : MonoBehaviour
 {
     private CharacterAnimations enemy_Anim;
     private NavMeshAgent navAgent;
-
+    [SerializeField]
+    private ParticleSystem ps;
     private Transform playerTarget;
     public float move_speed = 2.5f;
 
@@ -23,7 +24,7 @@ public class EnemyController : MonoBehaviour
     private float attack_Timer;
 
     private EnemyState enemy_State;
-    public GameObject attackPoint, attackPoint2;
+    public GameObject attackPoint, attackPoint2,attackPoint3;
     private CharacterSoundFX soundFX;
     // Start is called before the first frame update
     void Awake()
@@ -84,12 +85,21 @@ public class EnemyController : MonoBehaviour
 
         if(attack_Timer >wait_Before_Attack_time)
         {
-            if(Random.Range(0,2)>0)
+            int r = Random.Range(0, 3);
+            if(r==2)
             {
+                ps.Play();
                 enemy_Anim.Fire();
+                soundFX.Fire();
+                StartCoroutine("Wait");
+            }
+            else if(r==1)
+            {
+                enemy_Anim.Head();
                 soundFX.Attack();
             }
-            else
+
+            else if(r==0)
             {
                 enemy_Anim.Tail();
                 soundFX.Attack();
@@ -103,6 +113,12 @@ public class EnemyController : MonoBehaviour
             enemy_State = EnemyState.CHASE;
         }
     }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
+        ps.Stop();
+    }
+
     void ActivateAttackPoint1()
     {
         attackPoint.SetActive(true);
@@ -125,6 +141,18 @@ public class EnemyController : MonoBehaviour
         if (attackPoint2.activeInHierarchy)
         {
             attackPoint2.SetActive(false);
+        }
+    }
+
+    void ActivateAttackPoint3()
+    {
+        attackPoint3.SetActive(true);
+    }
+    void DeactivateAttackPoint3()
+    {
+        if (attackPoint3.activeInHierarchy)
+        {
+            attackPoint3.SetActive(false);
         }
     }
 }

@@ -7,7 +7,7 @@ public class CharacterSoundFX : MonoBehaviour
     private AudioSource soundFX;
 
     [SerializeField]
-    private AudioClip attack, die;
+    private AudioClip attack, die,fire;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,11 @@ public class CharacterSoundFX : MonoBehaviour
         soundFX.clip = attack;
         soundFX.Play();
     }
-
+    public void Fire()
+    {
+        soundFX.clip = fire;
+        soundFX.Play();
+    }
     public void Die()
     {
         soundFX.clip = die;
