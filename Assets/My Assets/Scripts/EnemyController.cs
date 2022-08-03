@@ -14,9 +14,11 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent navAgent;
     [SerializeField]
     private ParticleSystem ps;
+
+    public GameObject player;
     private Transform playerTarget;
     public float move_speed = 2.5f;
-
+    private bool fly = false;
     public float attack_Distance = 1f;
     public float chase_Player_After_Attck_Distance = 1f;
 
@@ -43,8 +45,28 @@ public class EnemyController : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
+
     {
-        if(enemy_State==EnemyState.CHASE)
+        if (fly)
+        {
+            this.transform.position = new Vector3(this.transform.position.x, 20f, this.transform.position.z);
+            enemy_Anim.Fly(fly);
+        }
+
+        else
+        { enemy_Anim.Fly(fly); }
+
+        if (player.GetComponent<PlayerMove>().fly)
+        {
+            fly = true;
+        }
+      else
+        {
+            Debug.Log(playerTarget.position.y);
+            fly = false;
+        }
+     
+        if (enemy_State==EnemyState.CHASE)
         {
             ChasePlayer();
         }
@@ -57,6 +79,7 @@ public class EnemyController : MonoBehaviour
     void ChasePlayer()
     {
         navAgent.SetDestination(playerTarget.position);
+      
         navAgent.speed=move_speed;
 
         if(navAgent.velocity.sqrMagnitude==0)

@@ -14,9 +14,9 @@ public class CharacterAnimations : MonoBehaviour
     {
         anim.SetBool("Walk", walk);
     }
-    public void Fly()
+    public void Fly(bool fly)
     {
-        anim.SetTrigger("Fly");
+        anim.SetBool("Fly",fly);
     }
     public void Fire()
     {

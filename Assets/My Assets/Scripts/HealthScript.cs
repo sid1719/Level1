@@ -34,8 +34,13 @@ public class HealthScript : MonoBehaviour
             {
                 winner="Player 2 wins";
             }
+            this.gameObject.transform.position= new Vector3(this.transform.position.x, 0.6f, this.transform.position.z);
+            playerAnimation.Fly(false);
             playerAnimation.Dead();
             soundFX.Die();
+
+            GameObject.Find("Enemy").GetComponent<EnemyController>().enabled = false;
+
         }
     }
     public void ApplyDamage(float damage)

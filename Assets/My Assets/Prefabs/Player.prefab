@@ -6740,7 +6740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: {x: 0, y: 10, z: 0}
-  rb: {fileID: 1580424888}
   movement_speed: 3
   jumpForce: 100
   gravity: 9.8

@@ -7,7 +7,8 @@ public class PlayerMove : MonoBehaviour
     public Vector3 jump;
     private CharacterController charController;
     private CharacterAnimations charAnimations;
-
+  
+    public bool fly = false;
     public float movement_speed = 2f, jumpForce =2f;
     public float gravity = 9.8f;
     public float rotation_speed=0.15f;
@@ -31,16 +32,22 @@ public class PlayerMove : MonoBehaviour
 
     void  Fly()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-                                
-            Vector3 moveDirection = transform.up;
-           // moveDirection.y -= gravity * Time.deltaTime;
-            charController.Move(moveDirection * movement_speed*30 * Time.deltaTime);
-            this.transform.position = new Vector3(this.transform.position.x, 3f, this.transform.position.z);
-            charAnimations.Fly();
+            fly = !fly;
+      
+           
         }
-    
+  
+        if (fly)
+        {
+            this.transform.position = new Vector3(this.transform.position.x, 20f, this.transform.position.z);
+            charAnimations.Fly(fly);
+        }
+        else
+        {
+            charAnimations.Fly(fly);
+        }
     }
     void Move()
     {
